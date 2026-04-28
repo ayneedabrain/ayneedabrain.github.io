@@ -603,6 +603,63 @@ button {
   line-height: 1.5;
 }
 
+.project-card,
+.quiet-section-link {
+  color: inherit;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.quiet-section-link {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-status {
+  width: fit-content;
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--red-dark);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition:
+    color 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+a.project-card .project-status::after,
+.quiet-section-link .project-status::after {
+  content: " ↗";
+}
+
+a.project-card:hover .project-status,
+a.project-card:focus-visible .project-status,
+.quiet-section-link:hover .project-status,
+.quiet-section-link:focus-visible .project-status {
+  transform: translateX(3px);
+}
+
+.is-muted {
+  cursor: default;
+}
+
+.is-muted .project-status {
+  color: var(--ink-soft);
+  opacity: 0.68;
+}
+
+.note-card.is-muted:hover,
+.note-card.is-muted:focus-within {
+  box-shadow: 0 14px 28px rgba(69, 50, 36, 0.08);
+  transform: translateY(-1px);
+}
+
 /* Variation 7: quiet bilingual log */
 
 .quiet {
@@ -894,6 +951,17 @@ button {
   color: var(--ink-soft);
   font-size: 13px;
   line-height: 1.55;
+}
+
+.quiet-section .project-status {
+  padding-top: 22px;
+}
+
+.quiet-section.is-muted:hover,
+.quiet-section.is-muted:focus-within {
+  background: transparent;
+  border-color: var(--line);
+  transform: translateY(-1px);
 }
 
 @keyframes screenIn {
